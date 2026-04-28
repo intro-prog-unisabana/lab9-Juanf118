@@ -19,7 +19,7 @@ if __name__ == "__main__":
     year = input("Enter the release year: ")
 # FREEZE CODE END
     my_movie = Movie(title, director, year)
-    print(my_movie)
+    print(my_movie.__str__())
 
     
     # TODO: Construct a Movie object!
