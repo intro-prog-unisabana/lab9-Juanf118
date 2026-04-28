@@ -6,6 +6,11 @@ class Song:
         self.length = float(length)
     def get_length_in_seconds(self):
         return self.length * 60
-
-my_song = Song("Bohemian Rhapsody", "Queen", 5.55)
-print(my_song.get_length_in_seconds())
+    def __str__(self):
+        return f"{self.name} by {self.artist} ({self.get_length_in_seconds()} seconds)"
+if __name__ == "__main__":
+    name = input("Enter the song name: ")
+    artist = input("Enter the artist's name: ")
+    length = input("Enter the length of the song in minutes: ")
+    my_song = Song(name, artist, length)
+    print(my_song.__str__())
