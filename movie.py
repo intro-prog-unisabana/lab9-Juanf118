@@ -18,10 +18,10 @@ if __name__ == "__main__":
     director = input("Enter the director's name: ")
     year = input("Enter the release year: ")
 # FREEZE CODE END
-    year = int(year)  # Convert year to an integer
-    movie = Movie(title, director, year)
-    print(movie.__str__())
+    year = int(year) 
 
     
     # TODO: Construct a Movie object!
     # TODO: Print the object!
+    movie = Movie(title, director, year)
+    print(movie.__str__())
