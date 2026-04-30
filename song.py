@@ -9,6 +9,8 @@ class Song:
         return self.length * 60
     def __str__(self):
         return f"{self.name} by {self.artist} ({self.length})"
+    def __repr__(self) -> str:
+        return f"Song(name={self.name!r}, artist={self.artist!r}, length={self.length!r})"
     
 if __name__ == "__main__":
     my_song = Song("tv off", "Kendrick Lamar", 3.7)
