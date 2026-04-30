@@ -1,34 +1,30 @@
-def main():
-    from aircraft import Aircraft
+from aircraft import Aircraft
 
-    _ = input().rstrip()
-    altitude = 0
-    model_ship = input("Enter aircraft model:\n")
-    aircraft = Aircraft(model_ship)
+def main():
+    model = input("Enter aircraft model:")
+    aircraft = Aircraft(model)
+
     while True:
-        print("Enter command (A for ascent, D for descent, X to exit):")
-        line = input().strip()
-        if line == "X":
+        line = input("Enter command (A for ascent, D for descent, X to exit):").strip()
+        if line.upper() == "X":
             break
-        if not line:
-            continue
         parts = line.split()
-        cmd = parts[0]
-        if cmd in ("A", "D") and len(parts) == 2:
-            try:
-                value = int(parts[1])
-            except ValueError:
-                # entrada inválida: ignorar y continuar leyendo
-                continue
-            if cmd == "A":
-                altitude += value
-            else:
-                altitude -= value
+        if len(parts) != 2:
+            continue
+        cmd = parts[0].upper()
+        try:
+            feet = int(parts[1])
+        except ValueError:
+            continue
+
+        if cmd == "A":
+            aircraft.climb(feet)
+        elif cmd == "D":
+            aircraft.descend(feet)
         else:
             continue
 
-    print(f"Final altitude: {altitude} feet")
-
+    print(f"Final altitude: {aircraft.altitude} feet")
 
 if __name__ == "__main__":
     main()
