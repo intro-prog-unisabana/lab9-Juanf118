@@ -42,7 +42,13 @@ def main():
           
         elif choice == '4':
           car_id = input("Enter the car ID to paint:\n")
-          new_color = input("Enter the new color:\n")
+          if car_id in cars:
+            new_color = input("Enter the new color:\n")
+            cars[car_id].change_color(new_color)
+            print("Color updated.")
+            print(cars[car_id])
+          else:
+            print("Car ID not found.")
           """TODO: Look up the car in the dictionary, call the appropriate
           class method to change the color of the car, and print the car."""
 
