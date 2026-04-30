@@ -14,4 +14,9 @@ def person_data_input():
         more_accounts = input("Are you done adding accounts? (yes/no)\n").lower()
         if more_accounts == "yes":
             done = True
-    return new_name
+if __name__ == "__main__":
+    person_data_input()
+def balance_summary(person):
+    print(f"Name: {person.name}")
+    for account in person.accounts:
+        print(account)
