@@ -8,7 +8,7 @@ class Movie:
 # FREEZE CODE END
     # TODO: Define the __str__ method!
     def __str__(self):
-        return f"Movie {self.title} (Directed by {self.director}, {self.year})"
+        return f"{self.title}-{self.director}-{self.year}"
 
 
 # FREEZE CODE BEGIN
