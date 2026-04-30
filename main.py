@@ -24,12 +24,12 @@ def main():
         # Option 2: Add an account to an existing person
         elif choice == "2":
             name = input("Enter the person's name:\n").strip()
-            found = False
+            found = None
             for person in people:
                 if person.name == name:
-                    found = True
+                    found = person
                     break
-                if not found:
+                if found is None:
                     print("Person not found.")
                 else:
                     account_number = int(input("Enter a 4-digit account number:\n").strip())
@@ -37,9 +37,11 @@ def main():
                     person.add_account(BankAccount(account_number, initial_balance))
         # Option 3: Show all balances
         elif choice == "3":
-            balance_summary(people)
             if not people:
                 print("No data to show.")
+            else:
+                balance_summary(people)
+
 
 
         # Option 4: Quit
