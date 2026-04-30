@@ -12,7 +12,6 @@ class Movie:
 
 
 # FREEZE CODE BEGIN
-if __name__ == "__main__":
     # --- Main Program ---
     title = input("Enter the movie title: ")
     director = input("Enter the director's name: ")
@@ -23,5 +22,6 @@ if __name__ == "__main__":
     
     # TODO: Construct a Movie object!
     # TODO: Print the object!
+if __name__ == "__main__":
     movie = Movie(title, director, year)
     print(movie.__str__())
