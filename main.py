@@ -24,16 +24,17 @@ def main():
         # Option 2: Add an account to an existing person
         elif choice == "2":
             name = input("Enter the person's name:\n").strip()
-            if name in [person.name for person in people]:
-                for person in people:
-                    if person.name == name:
-                        new_account_number = int(input("Enter a 4-digit account number:\n"))
-                        initial_balance = float(input("Enter the initial balance:\n"))
-                        person.add_account(BankAccount(new_account_number, initial_balance))
-                        print("Account added.")
-                    else:
-                        print("Person not found.")
-
+            found = False
+            for person in people:
+                if person.name == name:
+                    found = True
+                    break
+                if not found:
+                    print("Person not found.")
+                else:
+                    account_number = int(input("Enter a 4-digit account number:\n").strip())
+                    initial_balance = float(input("Enter the initial balance:\n").strip())
+                    person.add_account(BankAccount(account_number, initial_balance))
         # Option 3: Show all balances
         elif choice == "3":
             balance_summary(people)
