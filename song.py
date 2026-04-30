@@ -7,6 +7,8 @@ class Song:
         self.length = float(length)
     def get_length_in_seconds(self):
         return self.length * 60
+    def __str__(self):
+        return f"{self.name} by {self.artist} {self.length}"
 if __name__ == "__main__":
 
     my_song = Song("tv off", "Kendrick Lamar", 3.7)
