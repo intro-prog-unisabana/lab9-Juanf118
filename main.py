@@ -1,13 +1,10 @@
-from person import Person
-from utils import person_data, balance_summary
-from bank_account import BankAccount
-
-
 def main():
-    people = []  # List to store all Person objects
+    from utils import person_data, balance_summary
+    from bank_account import BankAccount
+
+    people = []
 
     while True:
-        # Display menu
         print("Choose an option:")
         print("1. Add a new person")
         print("2. Add an account to a person")
@@ -16,40 +13,34 @@ def main():
 
         choice = input().strip()
 
-        # Option 1: Add a new person
         if choice == "1":
-            new_person = person_data()
-            people.append(new_person)
+            person = person_data()
+            people.append(person)
 
-        # Option 2: Add an account to an existing person
         elif choice == "2":
-            name = input("Enter the person's name:\n").strip()
+            name = input("Enter the person's name:")
             found = None
-            for person in people:
-                if person.name == name:
-                    found = person
+            for p in people:
+                if p.name == name:
+                    found = p
                     break
-                if found is None:
-                    print("Person not found.")
-                else:
-                    account_number = int(input("Enter a 4-digit account number:\n").strip())
-                    initial_balance = float(input("Enter the initial balance:\n").strip())
-                    person.add_account(BankAccount(account_number, initial_balance))
-        # Option 3: Show all balances
+            if found is None:
+                print("Person not found.")
+            else:
+                account_number = int(input("Enter a 4-digit account number:"))
+                initial_balance = float(input("Enter the initial balance:"))
+                found.add_account(BankAccount(account_number, initial_balance))
+
         elif choice == "3":
             if not people:
                 print("No data to show.")
             else:
                 balance_summary(people)
 
-
-
-        # Option 4: Quit
         elif choice == "4":
             print("Goodbye!")
             break
 
-        # Invalid input
         else:
             print("Invalid option. Please choose 1-4.")
 
